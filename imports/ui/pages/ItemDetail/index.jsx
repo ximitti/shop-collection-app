@@ -26,14 +26,27 @@ const ItemDetail = () => {
     ProductsCollection.insert(produto)
   }
 
+  const handleRemoveProduto = () => {
+    ProductsCollection.remove(produtoBanco._id)
+  }
+
   const randomImage = Math.floor(Math.random() * produto.images.length)
   const randomTag = Math.floor(Math.random() * produto.tags.length)
 
   return (
-    <ItemDetailWrapper>
+    <ItemDetailWrapper
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    >
       <header>
         <h1>{produto.title}</h1>
-        {!produtoBanco && <button onClick={handleAddProduto}>Adicionar</button>}
+        {!!produtoBanco ? (
+          <button onClick={handleRemoveProduto}>Remover dos favoritos</button>
+        ) : (
+          <button onClick={handleAddProduto}>Adicionar aos favoritos</button>
+        )}
       </header>
       <main>
         <div className="imagem">

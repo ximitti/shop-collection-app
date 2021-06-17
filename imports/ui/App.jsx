@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import { AnimatePresence } from 'framer-motion'
 
 import Routes from './routes'
 import Navbar from './components/Navbar'
@@ -12,13 +13,14 @@ const App = () => {
 
   useEffect(() => {
     buscaDados().then((response) => dispatch(adicionarProdutoThunk(response)))
-    console.log('passou pelo App')
   }, [])
 
   return (
     <div>
       <Navbar />
-      <Routes />
+      <AnimatePresence exitBeforeEnter onExitComplete>
+        <Routes />
+      </AnimatePresence>
     </div>
   )
 }

@@ -13,6 +13,7 @@ const ItemDetailWrapper = styled(motion.div)`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
 
   header {
@@ -39,6 +40,12 @@ const ItemDetailWrapper = styled(motion.div)`
         border-color: var(--bg-color);
       }
     }
+
+    @media (max-width: 600px) {
+      button {
+        width: 50%;
+      }
+    }
   }
 
   main {
@@ -49,8 +56,12 @@ const ItemDetailWrapper = styled(motion.div)`
     border: 1px solid var(--font-color);
 
     .imagem {
-      max-width: 480px;
-      width: 90%;
+      width: 480px;
+
+      img {
+        width: 960px;
+        height: 100%;
+      }
     }
 
     .texto {
@@ -61,6 +72,35 @@ const ItemDetailWrapper = styled(motion.div)`
         border: 1px solid var(--bg-color);
         background-color: var(--font-color);
         color: var(--bg-color);
+      }
+    }
+
+    @media (max-width: 961px) {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas: 'imagem' 'texto';
+      width: 90%;
+      justify-content: center;
+      align-items: center;
+
+      .imagem {
+        min-width: 300px;
+        width: 100%;
+        height: 100%;
+
+        img {
+          min-width: 300px;
+          width: 100%;
+        }
+      }
+
+      .texto {
+        min-width: 300px;
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
       }
     }
   }

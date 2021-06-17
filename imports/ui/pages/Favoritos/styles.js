@@ -5,6 +5,7 @@ const FavoritosWrapper = styled(motion.div)`
   height: 90vh;
   overflow-y: auto;
   padding: 1rem;
+  scroll-behavior: smooth;
 
   ul {
     display: grid;

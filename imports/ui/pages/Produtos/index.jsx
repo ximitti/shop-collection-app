@@ -7,12 +7,17 @@ import ProdutosWrapper from './styles'
 
 // --------------------------------
 const Produtos = () => {
-  const produtosLista = useSelector((store) => store.produtos)
+  const { produtos } = useSelector((store) => store)
 
   return (
-    <ProdutosWrapper>
+    <ProdutosWrapper
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    >
       <ul>
-        {produtosLista.map((item) => (
+        {produtos.map((item) => (
           <Card key={item.id} produto={item} />
         ))}
       </ul>

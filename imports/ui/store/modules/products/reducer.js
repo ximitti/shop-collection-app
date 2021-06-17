@@ -1,7 +1,6 @@
 import { ADICIONAR_PRODUTO, REMOVER_PRODUTO } from './actionsType'
 
 // -----------------------------
-console.log('passou pelo reducer')
 
 const productsReducer = (state = [], action) => {
   switch (action.type) {
