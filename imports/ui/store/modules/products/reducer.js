@@ -1,8 +1,9 @@
 import { ADICIONAR_PRODUTO, REMOVER_PRODUTO } from './actionsType'
 
-// ------------------------------
+// -----------------------------
+console.log('passou pelo reducer')
 
-const cartReducer = (state = [], action) => {
+const productsReducer = (state = [], action) => {
   switch (action.type) {
     case ADICIONAR_PRODUTO:
       return action.listaProdutos
@@ -15,4 +16,4 @@ const cartReducer = (state = [], action) => {
   }
 }
 
-export default cartReducer
+export default productsReducer

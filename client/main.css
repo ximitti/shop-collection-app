@@ -1,3 +1,8 @@
+:root {
+  --font-color: #2d3b45;
+  --bg-color: #ebedee;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,4 +12,32 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--font-color);
+  overflow: hidden;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media (max-width: 1080px) {
+  body {
+    font-size: 93%;
+  }
+}
+
+@media (max-width: 720px) {
+  body {
+    font-size: 87%;
+  }
 }

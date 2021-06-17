@@ -1,13 +1,26 @@
-import React from 'react'
-import { Hello } from './Hello.jsx'
-import { Info } from './Info.jsx'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 
-const App = () => (
-  <div>
-    <h1>Welcome to Meteor!</h1>
-    <Hello />
-    <Info />
-  </div>
-)
+import Routes from './routes'
+import Navbar from './components/Navbar'
+import { buscaDados } from '/imports/services/buscaDados'
+import { adicionarProdutoThunk } from './store/modules/products/thunks'
+
+// ------------------------
+const App = () => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    buscaDados().then((response) => dispatch(adicionarProdutoThunk(response)))
+    console.log('passou pelo App')
+  }, [])
+
+  return (
+    <div>
+      <Navbar />
+      <Routes />
+    </div>
+  )
+}
 
 export default App
